@@ -1,0 +1,1056 @@
+[PGM]
+NAME=PRMAIN
+PGN=1
+'程式重置初始設定值
+SPEED 100            '速度設定
+ASPEED 30           '加減速設定
+DIM Autoflow%(1)    '自動流程
+DIM Autoflow2%(1)
+DIM LordPlate%(1)   '入料盤當前位置
+DIM UnlordPlate%(1) '出料盤當前位置
+'初始付值
+Autoflow%(0)=0
+IF SGI0=0 THEN
+    SGI0=1
+ENDIF
+IF SGI1=0 THEN
+    SGI1=1
+ENDIF
+DO2()=0
+DELAY 1000          '延遲1000MS
+'
+'*****************************************************************************************************************************************************************************************************
+'程序名稱:主流程
+'作者:蔡相偉
+'版本,日期,版本資訊:
+'1.0.0    2017/10/16        初始版本
+'
+'流程
+'PowerOn=0=>Idle=1|=>入料開始=20=>移動至入料取料點=21=>到位=22=>夾取出=23|=>夾取到出=24=>移動至入料位置=25=>到位=26=>夾取回=27=>夾取到回=28=>移動至待機位置=29=>到位=30=>啟動訊號已清除=31=>1
+'                 |                                                      |
+'                 |                                                      |=>夾取未到出=40|=>夾取失敗次數未到=41=>夾取回=42=>夾取到回=43=>1
+'                 |                                                                                    |=>夾取失敗次數已到=50=>發送取料異常=51=>夾取回=52=>夾取到回=53=>移動至待機位置=54=>到位=55=>1
+'                 |
+'                 |=>出料開始=60=>移動至出料取料點=61=>到位62=>夾取出=63|=>夾取到時=64|=>良品出料=65=>移動至良品出料位置=66=>到位=67    |=>夾取回=68=>夾取到回=69=>移動至待機位置=70=>到位=71=>啟動訊號已清除=72=>1
+'                                                                                     |=>不良品出料=80=>移動至不良品出料位置=81=>到位=82|=>夾取回=83=>夾取到回=84=>移動至待機位置=85=>到位=86=>啟動訊號已清除=87=>1
+'                                                                                     |
+'                                                                                     |=>夾取未到出=100|=>夾取失敗次數未到=101=>夾取回=102=>夾取到回=103=>1
+'                                                                                                      |=>夾取失敗次數已到=110=>發送取料異常=111=>夾取回=112=>夾取到回=113=>移動至待機位置=114=>到位=115=>1
+'*****************************************************************************************************************************************************************************************************
+'*****************************************************************************************************************************************************************************************************
+WHILE -1
+'*****************************************************************************************************************************************************************************************************
+'程序名稱:出盤換盤流程
+'作者:蔡相偉
+'版本,日期,版本資訊:
+'1.0.0    2017/12/15        初始版本
+'
+'流程
+'PowerOn=0=>Idle=1|=>換盤開始=2=>換盤中=3=>換盤完成=4
+'*****************************************************************************************************************************************************************************************************
+'PowerOn=0
+    'Idle=1
+    IF Autoflow%(1)=0 THEN
+       Autoflow%(1)=1
+    ENDIF
+    IF Autoflow%(1)=4 THEN
+       Autoflow%(1)=1
+    ENDIF
+    '換盤開始=2
+    IF Autoflow%(1)=1 AND (SGI0>=26 OR DI2(6)=0) THEN
+       Autoflow%(1)=2
+       SGI0=1
+    ENDIF
+    IF Autoflow%(1)=2 THEN
+        DO2(5)=1
+    ENDIF
+    '換盤中=3
+    IF Autoflow%(1)=2 AND DI2(6)=0 THEN
+       Autoflow%(1)=3
+    ENDIF
+    IF Autoflow%(1)=3 THEN
+        DO2(5)=0
+    ENDIF
+    '換盤完成=4
+    IF Autoflow%(1)=3 AND DI2(6)=1 THEN
+       Autoflow%(1)=4
+    ENDIF
+    IF Autoflow%(1)=4 THEN
+        'SGI0=1
+    ENDIF
+'*****************************************************************************************************************************************************************************************************
+'*****************************************************************************************************************************************************************************************************
+'程序名稱:收盤換盤流程
+'作者:蔡相偉
+'版本,日期,版本資訊:
+'1.0.0    2017/12/15        初始版本
+'
+'流程
+'PowerOn=0=>Idle=1|=>換盤開始=2=>換盤中=3=>換盤完成=4
+'*****************************************************************************************************************************************************************************************************
+'PowerOn=0
+    'Idle=1
+    IF Autoflow2%(1)=0 THEN
+       Autoflow2%(1)=1
+    ENDIF
+    IF Autoflow2%(1)=4 THEN
+       Autoflow2%(1)=1
+    ENDIF
+    '換盤開始=2
+    IF Autoflow2%(1)=1 AND (SGI1>=26 OR DI2(5)=0) THEN
+       Autoflow2%(1)=2
+       SGI1=1
+    ENDIF
+    IF Autoflow2%(1)=2 THEN
+        DO2(4)=1
+    ENDIF
+    '換盤中=3
+    IF Autoflow2%(1)=2 AND DI2(5)=0 THEN
+       Autoflow2%(1)=3
+    ENDIF
+    IF Autoflow2%(1)=3 THEN
+        DO2(4)=0
+    ENDIF
+    '換盤完成=4
+    IF Autoflow2%(1)=3 AND DI2(5)=1 THEN
+       Autoflow2%(1)=4
+    ENDIF
+    IF Autoflow2%(1)=4 THEN
+        'SGI1=1
+    ENDIF
+'*****************************************************************************************************************************************************************************************************
+    'PowerOn=0
+    IF Autoflow%(0)=0 THEN
+       ClipCount%=0
+    ENDIF
+    'Idle=1
+    IF Autoflow%(0)=0 AND ClipCount%=0 THEN
+       Autoflow%(0)=1
+       'DO2(6)=1
+    ENDIF
+    IF Autoflow%(0)=31 THEN
+       Autoflow%(0)=1
+       'DO2(6)=1
+    ENDIF
+    IF Autoflow%(0)=43 AND DI2(0) THEN
+       Autoflow%(0)=1
+       'DO2(6)=1
+    ENDIF
+    IF Autoflow%(0)=55 AND DI2(4)=0 THEN
+       Autoflow%(0)=1
+       'DO2(6)=1
+    ENDIF
+    IF Autoflow%(0)=72 THEN
+       Autoflow%(0)=1
+       'DO2(6)=1
+    ENDIF
+    IF Autoflow%(0)=87 THEN
+       Autoflow%(0)=1
+       'DO2(6)=1
+    ENDIF
+    IF Autoflow%(0)=103 AND DI2(0) THEN
+       Autoflow%(0)=1
+       'DO2(6)=1
+    ENDIF
+    IF Autoflow%(0)=115 AND DI2(2)=0 AND DI2(3)=0 THEN
+       Autoflow%(0)=1
+       'DO2(6)=1
+    ENDIF
+    '===========================================================================
+    '入料開始=20
+    IF Autoflow%(0)=1 AND DI2(6) AND DI2(4) THEN
+        DO2(0)=0
+        'DO2(6)=0
+        Autoflow%(0)=20
+    ENDIF
+    '左手待機=120
+    'IF Autoflow%(0)=20 AND DO2(0)=0 AND DI2(0) AND DO2(6)=0 THEN
+    '   MOVE P,P6,Z=0.0
+    '   WAIT ARM
+    '   Autoflow%(0)=120
+    'ENDIF
+    '移動至入料取料點=21
+    IF Autoflow%(0)=20 AND DO2(0)=0 AND DI2(0) THEN
+       Autoflow%(0)=21
+    ENDIF
+    '到位=22
+    IF Autoflow%(0)=21 AND SGI0<26 THEN
+        P10=WHRXY
+        A!=LOCF(P10)
+        IF A!=1 THEN
+            MOVE P,P5,Z=0.0
+        ENDIF
+        MOVE P,P4,Z=0.0
+        WAIT DI2(6)
+        PMOVE(0,SGI0+25),Z=0.0
+        WAIT ARM
+        PMOVE(0,SGI0)
+        WAIT ARM
+        SGI0=SGI0+1
+        Autoflow%(0)=22
+    ENDIF
+    '夾取出=23
+    IF Autoflow%(0)=22 THEN
+        Autoflow%(0)=23
+        ClipCount%=ClipCount%+1
+    ENDIF
+    IF Autoflow%(0)=23 THEN
+        DO2(0)=1
+        DELAY 800
+    ENDIF
+    '===========================================================================
+    '夾取到出=24
+    IF Autoflow%(0)=23 THEN
+        Autoflow%(0)=24
+        ClipCount%=0
+    ENDIF
+    '移動至入料位置=25
+    IF Autoflow%(0)=24 THEN
+        Autoflow%(0)=25
+    ENDIF
+    '到位=26
+    IF Autoflow%(0)=25 THEN
+        MOVE P,P4,Z=0.0
+        WAIT ARM
+        MOVE P,P1
+        WAIT ARM
+        Autoflow%(0)=26
+    ENDIF
+    '===========================================================================
+    '夾取回=27
+    IF Autoflow%(0)=26 THEN
+        Autoflow%(0)=27
+    ENDIF
+    IF Autoflow%(0)=27 THEN
+        DO2(0)=0
+        DELAY 500
+    ENDIF
+    '夾取到回=28
+    IF Autoflow%(0)=27 AND DI2(0) THEN
+        Autoflow%(0)=28
+    ENDIF
+    '移動至待機位置=29
+    IF Autoflow%(0)=28 THEN
+        Autoflow%(0)=29
+    ENDIF
+    '到位=30
+    IF Autoflow%(0)=29 THEN
+        MOVE P,P4,Z=0.0
+        WAIT ARM
+        Autoflow%(0)=30
+    ENDIF
+    IF Autoflow%(0)=30 THEN
+        DO2(3)=1
+        ELSE
+        DO2(3)=0
+    ENDIF
+    '啟動訊號已清除=31
+    IF Autoflow%(0)=30 THEN
+        Autoflow%(0)=31
+        DELAY 100
+    ENDIF
+    '===========================================================================
+    '夾取未到出=40
+    'IF Autoflow%(0)=23 AND DI2(1)=0 THEN
+    '    Autoflow%(0)=40
+    'ENDIF
+    '===========================================================================
+    '夾取失敗次數未到=41
+    IF Autoflow%(0)=40 AND DI2(1)=0 AND ClipCount%<1 THEN
+        Autoflow%(0)=41
+    ENDIF
+    '夾取回=42
+    IF Autoflow%(0)=41 THEN
+        Autoflow%(0)=42
+    ENDIF
+    IF Autoflow%(0)=42 THEN
+        DO2(0)=0
+    ENDIF
+    '夾取到回=43
+    IF Autoflow%(0)=42 THEN
+        IF DI2(0) THEN
+            DELAY 300
+            Autoflow%(0)=43
+        ENDIF
+    ENDIF
+    '===========================================================================
+    '夾取失敗次數已到=50
+    IF Autoflow%(0)=40 AND DI2(1)=0 AND ClipCount%>=1 THEN
+        Autoflow%(0)=50
+    ENDIF
+    '發送取料異常=51(取料異常發出後要等PLC關閉入料及出料開始訊號)
+    IF Autoflow%(0)=50 AND DI2(1)=0 AND ClipCount%>=1 THEN
+        Autoflow%(0)=51
+    ENDIF
+    IF Autoflow%(0)=51 THEN
+        DO2(1)=1
+        IF DI2(2)=0 AND DI2(3)=0 AND DI2(4)=0 THEN
+            DO2(1)=0
+            Autoflow%(0)=52
+        ENDIF
+    ENDIF
+    '夾取回=52
+    IF Autoflow%(0)=52 THEN
+        DO2(0)=0
+    ENDIF 
+    '夾取到回=53
+    IF Autoflow%(0)=52 THEN
+        IF DI2(0) THEN
+            DELAY 200
+            Autoflow%(0)=53
+        ENDIF
+    ENDIF 
+    '移動至待機位置=54
+    IF Autoflow%(0)=53 AND DI2(0) THEN
+        Autoflow%(0)=54
+    ENDIF
+    '到位=55
+    IF Autoflow%(0)=54 THEN
+        MOVE P,P4,Z=0.0
+        WAIT ARM
+        Autoflow%(0)=55
+    ENDIF
+    '===========================================================================
+    '===========================================================================
+    '===========================================================================
+    '出料開始=60
+    IF Autoflow%(0)=1 AND DI2(4)=0 AND ((DI2(2) AND DI2(5)) OR DI2(3)) THEN
+        DO2(0)=0
+        'DO2(6)=0
+        Autoflow%(0)=60
+    ENDIF
+    '右手待機=130
+    'IF Autoflow%(0)=60 AND DI2(0) AND DO2(6)=0 THEN
+    '    MOVE P,P0,Z=0.0
+    '    WAIT ARM
+    '    Autoflow%(0)=130
+    'ENDIF
+    '移動至出料取料點=61
+    IF Autoflow%(0)=60 AND DI2(0) THEN
+        Autoflow%(0)=61
+    ENDIF
+    '到位62
+    IF Autoflow%(0)=61 THEN
+        P10=WHRXY
+        A!=LOCF(P10)
+        IF A!=2 THEN
+            MOVE P,P4,Z=0.0
+        ENDIF
+        MOVE P,P5,Z=0.0
+        WAIT ARM
+        MOVE P,P2
+        WAIT ARM
+        Autoflow%(0)=62
+    ENDIF
+    '夾取出=63
+    IF Autoflow%(0)=62 THEN
+        Autoflow%(0)=63
+        ClipCount%=ClipCount%+1
+    ENDIF
+    IF Autoflow%(0)=63 THEN
+        DO2(0)=1
+        DELAY 800
+    ENDIF
+    '夾取到時=64
+    IF Autoflow%(0)=63 THEN
+        Autoflow%(0)=64
+    ENDIF
+    '===========================================================================
+    '良品出料=65
+    IF Autoflow%(0)=64 AND DI2(5) AND DI2(2) THEN
+        Autoflow%(0)=65
+    ENDIF
+    '移動至良品出料位置=66
+    IF Autoflow%(0)=65 AND DI2(2) THEN
+        Autoflow%(0)=66
+    ENDIF
+    '到位=67
+    IF Autoflow%(0)=66 AND SGI1<26 THEN
+        PMOVE(1,SGI1+25),Z=0.0
+        WAIT ARM
+        DO2(2)=1
+        PMOVE(1,SGI1)
+        WAIT ARM
+        SGI1=SGI1+1
+        Autoflow%(0)=67
+    ENDIF
+    '夾取回=68
+    IF Autoflow%(0)=67 AND DI2(2)=0 THEN
+        Autoflow%(0)=68
+        DO2(2)=0
+        ClipCount%=0
+    ENDIF
+    IF Autoflow%(0)=68 THEN
+        DO2(0)=0
+    ENDIF
+    '夾取到回=69
+    IF Autoflow%(0)=68 AND DI2(0) THEN
+        Autoflow%(0)=69
+    ENDIF
+    '移動至待機位置=70
+    IF Autoflow%(0)=69 THEN
+        Autoflow%(0)=70
+    ENDIF
+    '到位=71
+    IF Autoflow%(0)=70 THEN
+        MOVE P,P5,Z=0.0
+        WAIT ARM
+        fullcount2%=0
+        Autoflow%(0)=71
+    ENDIF
+    '啟動訊號已清除=72
+    IF Autoflow%(0)=71 THEN
+        Autoflow%(0)=72
+        DELAY 100
+    ENDIF
+    '===========================================================================
+    '不良品出料=80
+    IF Autoflow%(0)=64 AND DI2(3) THEN
+        Autoflow%(0)=80
+    ENDIF
+    '移動至不良品出料位置=81
+    IF Autoflow%(0)=80 AND DI2(3) THEN
+        Autoflow%(0)=81
+    ENDIF
+    '到位=82
+    IF Autoflow%(0)=81 THEN
+        MOVE P,P3,Z=0.0
+        WAIT ARM
+        DO2(2)=1
+        Autoflow%(0)=82
+    ENDIF
+    '夾取回=83
+    IF Autoflow%(0)=82 AND DI2(3)=0 THEN
+        Autoflow%(0)=83
+        DO2(2)=0
+        ClipCount%=0
+    ENDIF
+    IF Autoflow%(0)=83 THEN
+        DO2(0)=0
+    ENDIF
+    '夾取到回=84
+    IF Autoflow%(0)=83 AND DI2(0) THEN
+        Autoflow%(0)=84
+    ENDIF
+    '移動至待機位置=85
+    IF Autoflow%(0)=84 THEN
+        Autoflow%(0)=85
+    ENDIF
+    '到位=86
+    IF Autoflow%(0)=85 THEN
+        MOVE P,P5,Z=0.0
+        WAIT ARM
+        Autoflow%(0)=86
+    ENDIF
+    '啟動訊號已清除=87
+    IF Autoflow%(0)=86 THEN
+        Autoflow%(0)=87
+        DELAY 100
+    ENDIF
+    '===========================================================================
+    '===========================================================================
+    '夾取未到出=100
+    'IF (Autoflow%(0)=67 OR Autoflow%(0)=82) AND DI2(1)=0 THEN
+    '    Autoflow%(0)=100
+    '    SGI1=SGI1-1
+    'ENDIF
+    '夾取失敗次數未到=101
+    IF Autoflow%(0)=100 AND DI2(1)=0 AND ClipCount%<1 THEN
+        Autoflow%(0)=101
+    ENDIF
+    '夾取回=102
+    IF Autoflow%(0)=101 THEN
+        Autoflow%(0)=102
+    ENDIF
+    IF Autoflow%(0)=102 THEN
+        DO2(0)=0
+    ENDIF
+    '夾取到回=103
+    IF Autoflow%(0)=102 THEN
+        IF DI2(0) THEN
+            DELAY 300
+            Autoflow%(0)=103
+        ENDIF
+    ENDIF
+    '===========================================================================
+    '===========================================================================
+    '夾取失敗次數已到=110
+    IF Autoflow%(0)=100 AND DI2(1)=0 AND ClipCount%>=1 THEN
+        Autoflow%(0)=110
+    ENDIF
+    ''發送取料異常=111(取料異常發出後要等PLC關閉入料及出料開始訊號)
+    IF Autoflow%(0)=110 AND DI2(1)=0 AND ClipCount%>=1 THEN
+        Autoflow%(0)=111
+    ENDIF
+    'IF Autoflow%(0)=63 AND DI2(1)=0 THEN
+    '    Autoflow%(0)=111
+    'ENDIF
+    IF Autoflow%(0)=111 THEN
+        DO2(1)=1
+        IF DI2(2)=0 AND DI2(3)=0 AND DI2(4)=0 THEN
+            DO2(1)=0
+            Autoflow%(0)=112
+        ENDIF
+    ENDIF
+    '夾取回=112
+    IF Autoflow%(0)=112 THEN
+        DO2(0)=0
+    ENDIF 
+    '夾取到回=113
+    IF Autoflow%(0)=112 THEN
+        IF DI2(0) THEN
+            DELAY 200
+            Autoflow%(0)=113
+        ENDIF
+    ENDIF 
+    '移動至待機位置=114
+    IF Autoflow%(0)=113 AND DI2(0) THEN
+        Autoflow%(0)=114
+    ENDIF
+    '到位=115
+    IF Autoflow%(0)=114 THEN
+        MOVE P,P5,Z=0.0
+        WAIT ARM
+        Autoflow%(0)=115
+    ENDIF
+'*****************************************************************************************************************************************************************************************************
+WEND
+NAME=TEST
+PGN=2
+*AA:
+P10=WHRXY
+A=LOCF(P10)
+GOTO *AA
+
+[PNT]
+P0   =-1.643  312.078    0.000  249.818    0.000    0.000 1 0 0
+P1   =47.079  488.066   56.000   99.010    0.000    0.000 2 0 0
+P2   =-97.150  488.013   56.000  256.906    0.000    0.000 1 0 0
+P3   =-1.643  312.078    0.000  249.818    0.000    0.000 1 0 0
+P4   =47.097  488.066    0.000   99.010    0.000    0.000 2 0 0
+P5   =-97.150  488.013    0.000  256.906    0.000    0.000 1 0 0
+P6   =2.389  291.047    0.000  106.267    0.000    0.000 2 0 0
+P10  =47.098  488.066    0.000   99.010    0.000    0.000 2 0 0
+P20  =-200.000  500.000    5.000  360.000    0.000    0.000 0 0 0
+P21  =115.000  440.000  150.000 -360.000    0.000    0.000 0 0 0
+P50  =216.823  -90.076   57.000   87.503    0.000    0.000 2 0 0
+P51  =416.728  -89.908   57.000   86.984    0.000    0.000 2 0 0
+P52  =216.878   90.000   57.000   88.611    0.000    0.000 2 0 0
+P53  =416.894   90.016   57.000   87.888    0.000    0.000 2 0 0
+P54  =216.823  -90.076    0.000   87.503    0.000    0.000 2 0 0
+P55  =416.728  -89.907    0.000   86.984    0.000    0.000 2 0 0
+P56  =216.878   90.000    0.000   88.611    0.000    0.000 2 0 0
+P57  =416.894   90.016    0.000   87.888    0.000    0.000 2 0 0
+P60  =-416.913  -89.561   56.000  269.233    0.000    0.000 1 0 0
+P61  =-216.932  -89.663   56.000  266.647    0.000    0.000 1 0 0
+P62  =-416.742   90.369   56.000  268.189    0.000    0.000 1 0 0
+P63  =-216.717   90.678   56.000  267.147    0.000    0.000 1 0 0
+P64  =-416.913  -89.561    0.000  269.233    0.000    0.000 1 0 0
+
+[PCM]
+PC0   =右手待機位置
+PC1   =入料位置
+PC2   =出料位置
+PC3   =不良品放置位置
+PC4   =入料上位位置
+PC5   =出料上位位置
+PC6   =左手待機位置
+
+[PRM]
+'PRM(0)
+\CNTTYP\
+C1=340
+\YCEADR\
+C1=0
+\DRVASGN\
+R1A=101,102,103,104,0,0
+R2A=0,0,0,0,0,0
+R3A=0,0,0,0,0,0
+R4A=0,0,0,0,0,0
+\RBTNUM\
+R1=2138
+\AXSNUM\
+R1A=2138,2138,2138,2138
+\ATTRIB\
+R1A=0,0,0,0
+\STACK\
+R1A=0,1,2,3
+\CORDAT\
+R1A=1,2,3,4
+'PRM(1)
+/INCMOD/
+RC=0
+/MOVIMD/
+RC=0
+/MOVTMD/
+RC=0
+/SRVOON/
+RC=0
+/SEQFLG/
+RC=0
+#SAFEMODE#
+RC=-1
+/RUNINOIC/
+RC=0
+/RSTATRUN/
+RC=0
+/RSTATBOT/
+RC=0
+/CRNTPG/
+RC=1
+/MAINPG/
+RC=1
+/STDPRN/
+RC=1
+#EMGTIM#
+RC=1000
+#EMGTIM2#
+RC=300
+/DBGSTAMD/
+RC=0
+/BRKSTPMD/
+RC=1
+/SFTONACO/
+RC=1
+/SFTONCRD/
+RC=3
+'PRM(2)
+/WEIGHT/
+R1=2
+/ORGORD/
+R1=312456
+/RORIEN/
+R1=0
+/ARMTYP/
+R1=1
+#CPVMAX#
+R1=1000
+#CPACCL#
+R1=9000
+/CPACRAT/
+R1=100
+#CPCMPCRV#
+R1=13
+#CPCMPVL#
+R1=800
+#ZONCTRL#
+R1=1
+/SCRINR/
+R1=0
+#SCRACC#
+R1=100
+#SCRVEL#
+R1=100
+#MINRAD#
+R1=5000
+#CERAD1#
+R1=30000
+#CERAD2#
+R1=5000
+#SPLMT1#
+R1=10
+#SPLMT2#
+R1=1
+#CSTMRBT#
+R1=0
+\ASPEED\
+R1=30
+'PRM(3)
+/PLMT+/
+R1A=509725,524288,204800,819200
+/PLMT-/
+R1A=-509725,-524288,-1366,-819200
+/ACCEL/
+R1A=100,100,100,100
+/DECRAT/
+R1A=100,100,100,100
+/AXSTIP/
+R1A=0,0,0,0
+/TOLE/
+R1A=80,80,80,80
+/OUTPOS/
+R1A=2000,2000,2000,2000
+/CONTPLS/
+R1A=0,0,0,0
+/ARCHP1/
+R1A=9999999,9999999,9999999,9999999
+/ARCHP2/
+R1A=9999999,9999999,9999999,9999999
+/PSHSPD/
+R1A=10,10,10,10
+/PSHFRC/
+R1A=100,100,100,100
+/PSHTIME/
+R1A=1000,1000,1000,1000
+/PSHJGSP/
+R1A=0,0,0,0
+/PSHMTD/
+R1A=0,0,0,0
+/MANACC/
+R1A=100,100,100,100
+/ORGVEL1/
+R1A=200,200,200,200
+/ORGVEL2/
+R1A=50,50,50,50
+/ORGMVS/
+R1A=20,20,20,20
+/ORGMVP/
+R1A=0,0,0,0
+/ORGSFT/
+R1A=0,0,0,0
+/DOFSET/
+R1A=0,0,0,0
+/ORGMTD/
+R1A=1,1,2,1
+/ORGDIR/
+R1A=0,0,0,0
+/MOTDIR/
+R1A=0,0,1,1
+/SABSRCH/
+R1A=0,0,0,0
+/ARMLEN/
+R1A=250000,250000,0,0
+/OFFSET/
+R1A=-327558,2946,0,0
+/AXSWEI/
+R1A=0,0,0,0
+'PRM(4)
+#WTHBRK#
+R1A=0,0,1,0
+#LSCLEN#
+R1A=0,0,0,0
+#LSCRNG#
+R1A=0,0,0,0
+#ACCRAD#
+R1A=1100,1100,5700,9000
+#DECRAD#
+R1A=2800,2800,6500,12000
+#CMPCRV#
+R1A=14,14,17,18
+#CMPVEL#
+R1A=5500,5500,3600,4000
+#ACCPTN#
+R1A=2,2,1,1
+#DECPTN#
+R1A=6,6,3,3
+#VERDIR#
+R1A=0,0,0,0
+#VERACC#
+R1A=0,0,15,0
+#ATLACL#
+R1A=220,131,0,424
+#ATLVCL#
+R1A=71,0,0,0
+#ATLJMR#
+R1A=25,20,10,18
+#ATLVF#
+R1A=1180,0,0,0
+#KPPMOV#
+R1A=45,45,45,45
+#KPP#
+R1A=45,45,45,45
+#KPCHTM#
+R1A=0,0,0,0
+#KFF#
+R1A=0,0,0,0
+#KFFLPF#
+R1A=0,0,0,0
+#KHFRQ1#
+R1A=0,0,0,0
+#KHFRQ2#
+R1A=0,0,0,0
+#KVP#
+R1A=3000,3000,3000,3000
+#KVI#
+R1A=2000,2000,2000,2000
+#KVRHLD#
+R1A=100,100,100,100
+#KVRPOS#
+R1A=100,100,100,100
+#KVCHTM#
+R1A=0,0,0,0
+#AL2DOF#
+R1A=0,0,0,0
+#KVLLMT#
+R1A=50,50,60,50
+#KVRESV#
+R1A=0,0,0,0
+#KVREEV#
+R1A=3960,3960,3025,4675
+#TRQFRQ#
+R1A=104,104,104,104
+#TFRQHLD#
+R1A=104,104,104,104
+#MF1TYP#
+R1A=0,0,0,0
+#MF1FRQ1#
+R1A=0,0,0,0
+#MF1FRQ2#
+R1A=0,0,0,0
+#MF2TYP#
+R1A=0,0,0,0
+#MF2FRQ1#
+R1A=0,0,0,0
+#MF2FRQ2#
+R1A=0,0,0,0
+#MF3TYP#
+R1A=0,0,0,0
+#MF3FRQ1#
+R1A=0,0,0,0
+#MF3FRQ2#
+R1A=0,0,0,0
+#MF4TYP#
+R1A=0,0,0,0
+#MF4FRQ1#
+R1A=0,0,0,0
+#MF4FRQ2#
+R1A=0,0,0,0
+#OBSNMI#
+R1A=0,0,0,0
+#OBSGIN#
+R1A=0,0,0,0
+#OBSFF1#
+R1A=0,0,0,0
+#OBSFF2#
+R1A=0,0,0,0
+#KIP#
+R1A=49,14,41,36
+#KII#
+R1A=23,16,61,21
+#KIF#
+R1A=5,5,5,5
+#KILLMT#
+R1A=100,100,100,100
+#KIRESV#
+R1A=0,0,0,0
+#KIREEV#
+R1A=0,0,0,0
+#VELLMT#
+R1A=7200,7200,5500,8500
+#CRFSTD#
+R1A=256,160,81,117
+#CRFLMT#
+R1A=601,537,233,240
+#LEAD#
+R1A=360000,360000,12000,360000
+#GEAR#
+R1A=80000,80000,1000,50000
+#NMOTOR#
+R1A=327,320,321,328
+#MTRTYP#
+R1A=0,0,0,0
+#ENCTYP#
+R1A=0,0,0,0
+#ENCPLS#
+R1A=16384,16384,16384,16384
+#MPTYPE#
+R1A=0,0,0,0
+#MPPTCH#
+R1A=4096,4096,4096,4096
+#IS#
+R1A=360,400,90,250
+#IP#
+R1A=1010,1130,260,670
+#KT#
+R1A=200,130,190,150
+#RP#
+R1A=60,77,600,107
+#LP#
+R1A=20,11,67,29
+#JM#
+R1A=200,79,56,400
+#CTTYPE#
+R1A=2,1,0,1
+#PWMFRQ#
+R1A=13,13,13,13
+#IDLIMT#
+R1A=0,0,0,0
+#IDSTVL#
+R1A=7700,8500,7700,8800
+#IDEDVL#
+R1A=0,0,0,0
+#ORGACC#
+R1A=100,100,100,100
+#ORGCUR#
+R1A=601,537,140,240
+#ORGDVEL#
+R1A=20,20,20,20
+#ORGTIM#
+R1A=200,200,200,200
+#ORGRTP#
+R1A=4,4,1,4
+#ORGPHS#
+R1A=0,0,0,0
+#DOGLEN#
+R1A=200000,200000,200000,200000
+#POLSFT#
+R1A=0,0,0,0
+#POLLVL#
+R1A=0,0,0,0
+#EMGMOD#
+R1A=0,0,2,0
+#EMGACC#
+R1A=0,0,2800,0
+#DUALMOD#
+R1A=0,0,0,0
+#DUALDIR#
+R1A=0,0,0,0
+#DUALORG#
+R1A=0,0,0,0
+#DSLVPOS#
+R1A=0,0,0,0
+#KDVP#
+R1A=10,10,10,10
+#KDPP#
+R1A=10,10,10,10
+#KDPHLD#
+R1A=0,0,0,0
+#KDPCHT#
+R1A=0,0,0,0
+#PTPCTRL#
+R1A=0,0,0,0
+#PTPCHG#
+R1A=200,200,200,200
+#RCKPLS#
+R1A=20,20,20,20
+#MINVEL#
+R1A=5,5,5,5
+#PVBRK#
+R1A=0,0,0,0
+#QPBAND#
+R1A=0,0,0,0
+#SRVDTM#
+R1A=100,100,100,100
+#BKDLTM#
+R1A=0,0,0,0
+#BKONTM#
+R1A=0,0,9,0
+#BKOFTM#
+R1A=0,0,1,0
+#MBRKVL#
+R1A=2000,2000,2000,2000
+#MOLCRT#
+R1A=284,189,78,168
+#MOLTIM#
+R1A=300,300,300,300
+#MOLVEL#
+R1A=0,0,0,0
+#MOLMLT#
+R1A=31,35,30,40
+#DOLCRT#
+R1A=2400,1200,600,1200
+#DOLTIM#
+R1A=10,10,10,10
+#DOLVEL#
+R1A=0,0,0,0
+#DOLMLT#
+R1A=28,28,28,28
+#OVRCRT#
+R1A=1070,801,279,796
+#OCWTIM#
+R1A=2,2,2,2
+#CERLVL#
+R1A=535,400,139,398
+#CERTIM#
+R1A=2,2,2,2
+#OVRVEL#
+R1A=7920,7920,6050,9350
+#OVLTIM#
+R1A=2,2,2,2
+#VERLVL#
+R1A=3960,3960,3025,4675
+#VERTIM#
+R1A=3,3,3,3
+#PERLVL#
+R1A=61516,61516,46991,72623
+#PERTIM#
+R1A=3,3,3,3
+#DPERLVL#
+R1A=16384,16384,16384,16384
+#DPERTIM#
+R1A=3,3,3,3
+#COLVEL#
+R1A=5,5,5,5
+#COLTIM#
+R1A=50,50,50,50
+#DRVCTRL#
+R1A=0,0,0,0
+#VLCNMSPD#
+R1A=20,20,20,20
+#VLCNSVL#
+R1A=0,0,0,0
+#MVLCNTRT#
+R1A=0,0,0,0
+#CSTMAXS#
+R1A=0,0,0,0
+'PRM(5)
+/EMGCDO/
+RC=1
+/ERPORT/
+RC=0
+/BTALRM/
+RC=0
+/DIOCAN/
+RC=1
+/RESCDO/
+RC=0
+/DI17MD/
+RC=0
+/IOORGMD/
+RC=0
+/IOORGIN/
+RC=2
+/IOORGOUT/
+RC=0
+/IOSRVOUT/
+RC=0
+'PRM(6)
+/OPTENBL/
+C1O=1,0,0,0
+/DIOID/
+RC=1234
+
+[PLT]
+PL0 
+PLN=XY
+NX=5  
+NY=5  
+NZ=2  
+PLP=      50
+P[1]= 216.823  -90.076   57.000   87.503    0.000    0.000 2 0 0
+P[2]= 416.728  -89.908   57.000   86.984    0.000    0.000 2 0 0
+P[3]= 216.878   90.000   57.000   88.611    0.000    0.000 2 0 0
+P[4]= 416.894   90.016   57.000   87.888    0.000    0.000 2 0 0
+P[5]= 216.823  -90.076    0.000   87.503    0.000    0.000 2 0 0
+PL1 
+PLN=XY
+NX=5  
+NY=5  
+NZ=2  
+PLP=      60
+P[1]=-416.913  -89.561   56.000  269.233    0.000    0.000 1 0 0
+P[2]=-216.932  -89.663   56.000  266.647    0.000    0.000 1 0 0
+P[3]=-416.742   90.369   56.000  268.189    0.000    0.000 1 0 0
+P[4]=-216.717   90.678   56.000  267.147    0.000    0.000 1 0 0
+P[5]=-416.913  -89.561    0.000  269.233    0.000    0.000 1 0 0
+
+[ION]
+DONM2(0)=SOL_CLIP
+DONM2(1)=ERROR_CLIP
+DONM2(2)=ULFINISH_FLAG
+DONM2(3)=LORDFINISH_FLAG
+DONM2(4)=ULPLATE_CHANG
+DONM2(5)=LPLATE_CHANG
+DONM2(6)=ORG_FLAG
+DINM2(0)=LS_CLIPBACK
+DINM2(1)=LS_CLIPOUT
+DINM2(2)=UL_OK_START
+DINM2(3)=UL_NG_START
+DINM2(4)=LORD_START
+DINM2(5)=ULPLATE_READY
+DINM2(6)=LORDPLATE_READY
+
+[ACO]
+AC0   =1,20,21,1,26,0
+
+[END]

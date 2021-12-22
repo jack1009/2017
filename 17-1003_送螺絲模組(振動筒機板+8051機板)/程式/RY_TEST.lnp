@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"main.obj" 
+TO "RY_TEST" 
+RAMSIZE(256) 

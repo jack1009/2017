@@ -1,0 +1,414 @@
+<diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+  <DSCHECKOUT>
+    <L_Checkout diffgr:id="L_Checkout1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
+      <iID>1</iID>
+      <iProjectdataID>1</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:22.1582367+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout2" msdata:rowOrder="1" diffgr:hasChanges="inserted">
+      <iID>2</iID>
+      <iProjectdataID>2</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:22.4702373+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout3" msdata:rowOrder="2" diffgr:hasChanges="inserted">
+      <iID>3</iID>
+      <iProjectdataID>3</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:22.7822378+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout4" msdata:rowOrder="3" diffgr:hasChanges="inserted">
+      <iID>4</iID>
+      <iProjectdataID>4</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:23.0474383+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout5" msdata:rowOrder="4" diffgr:hasChanges="inserted">
+      <iID>5</iID>
+      <iProjectdataID>5</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:23.3438388+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout6" msdata:rowOrder="5" diffgr:hasChanges="inserted">
+      <iID>6</iID>
+      <iProjectdataID>6</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:23.6558394+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout7" msdata:rowOrder="6" diffgr:hasChanges="inserted">
+      <iID>7</iID>
+      <iProjectdataID>7</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:24.1238402+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout8" msdata:rowOrder="7" diffgr:hasChanges="inserted">
+      <iID>8</iID>
+      <iProjectdataID>8</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:24.4046407+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout9" msdata:rowOrder="8" diffgr:hasChanges="inserted">
+      <iID>9</iID>
+      <iProjectdataID>9</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:24.6854412+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout10" msdata:rowOrder="9" diffgr:hasChanges="inserted">
+      <iID>10</iID>
+      <iProjectdataID>10</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:25.0130417+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout11" msdata:rowOrder="10" diffgr:hasChanges="inserted">
+      <iID>11</iID>
+      <iProjectdataID>11</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:25.3094423+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout12" msdata:rowOrder="11" diffgr:hasChanges="inserted">
+      <iID>12</iID>
+      <iProjectdataID>17</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:25.6058428+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout13" msdata:rowOrder="12" diffgr:hasChanges="inserted">
+      <iID>13</iID>
+      <iProjectdataID>18</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:25.9958435+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout14" msdata:rowOrder="13" diffgr:hasChanges="inserted">
+      <iID>14</iID>
+      <iProjectdataID>21</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:26.323444+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout15" msdata:rowOrder="14" diffgr:hasChanges="inserted">
+      <iID>15</iID>
+      <iProjectdataID>12</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:26.6198446+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout16" msdata:rowOrder="15" diffgr:hasChanges="inserted">
+      <iID>16</iID>
+      <iProjectdataID>14</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:26.9630452+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout17" msdata:rowOrder="16" diffgr:hasChanges="inserted">
+      <iID>17</iID>
+      <iProjectdataID>58</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:27.2750457+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout18" msdata:rowOrder="17" diffgr:hasChanges="inserted">
+      <iID>18</iID>
+      <iProjectdataID>15</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:27.6026463+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout19" msdata:rowOrder="18" diffgr:hasChanges="inserted">
+      <iID>19</iID>
+      <iProjectdataID>16</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:27.8990468+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout20" msdata:rowOrder="19" diffgr:hasChanges="inserted">
+      <iID>20</iID>
+      <iProjectdataID>48</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:28.1642473+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout21" msdata:rowOrder="20" diffgr:hasChanges="inserted">
+      <iID>21</iID>
+      <iProjectdataID>49</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:28.4606478+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout22" msdata:rowOrder="21" diffgr:hasChanges="inserted">
+      <iID>22</iID>
+      <iProjectdataID>50</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:28.7258483+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout23" msdata:rowOrder="22" diffgr:hasChanges="inserted">
+      <iID>23</iID>
+      <iProjectdataID>51</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:29.0378488+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout24" msdata:rowOrder="23" diffgr:hasChanges="inserted">
+      <iID>24</iID>
+      <iProjectdataID>52</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:29.3186493+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout25" msdata:rowOrder="24" diffgr:hasChanges="inserted">
+      <iID>25</iID>
+      <iProjectdataID>53</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:29.6150498+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout26" msdata:rowOrder="25" diffgr:hasChanges="inserted">
+      <iID>26</iID>
+      <iProjectdataID>54</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:29.9114503+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout27" msdata:rowOrder="26" diffgr:hasChanges="inserted">
+      <iID>27</iID>
+      <iProjectdataID>19</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:30.2390509+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout28" msdata:rowOrder="27" diffgr:hasChanges="inserted">
+      <iID>28</iID>
+      <iProjectdataID>20</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:30.4886514+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout29" msdata:rowOrder="28" diffgr:hasChanges="inserted">
+      <iID>29</iID>
+      <iProjectdataID>22</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:30.8006519+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout30" msdata:rowOrder="29" diffgr:hasChanges="inserted">
+      <iID>30</iID>
+      <iProjectdataID>28</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:31.0814524+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout31" msdata:rowOrder="30" diffgr:hasChanges="inserted">
+      <iID>31</iID>
+      <iProjectdataID>29</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:31.424653+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout32" msdata:rowOrder="31" diffgr:hasChanges="inserted">
+      <iID>32</iID>
+      <iProjectdataID>55</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:31.7210535+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout33" msdata:rowOrder="32" diffgr:hasChanges="inserted">
+      <iID>33</iID>
+      <iProjectdataID>56</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:31.970654+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout34" msdata:rowOrder="33" diffgr:hasChanges="inserted">
+      <iID>34</iID>
+      <iProjectdataID>59</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:32.2826545+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout35" msdata:rowOrder="34" diffgr:hasChanges="inserted">
+      <iID>35</iID>
+      <iProjectdataID>60</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:32.547855+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout36" msdata:rowOrder="35" diffgr:hasChanges="inserted">
+      <iID>36</iID>
+      <iProjectdataID>63</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:32.8598555+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout37" msdata:rowOrder="36" diffgr:hasChanges="inserted">
+      <iID>37</iID>
+      <iProjectdataID>64</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:33.156256+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout38" msdata:rowOrder="37" diffgr:hasChanges="inserted">
+      <iID>38</iID>
+      <iProjectdataID>65</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:33.4526566+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout39" msdata:rowOrder="38" diffgr:hasChanges="inserted">
+      <iID>39</iID>
+      <iProjectdataID>66</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:33.7334571+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout40" msdata:rowOrder="39" diffgr:hasChanges="inserted">
+      <iID>40</iID>
+      <iProjectdataID>73</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:34.0298576+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout41" msdata:rowOrder="40" diffgr:hasChanges="inserted">
+      <iID>41</iID>
+      <iProjectdataID>74</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:34.3418581+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout42" msdata:rowOrder="41" diffgr:hasChanges="inserted">
+      <iID>42</iID>
+      <iProjectdataID>75</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:34.6382586+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout43" msdata:rowOrder="42" diffgr:hasChanges="inserted">
+      <iID>43</iID>
+      <iProjectdataID>76</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:34.9190591+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout44" msdata:rowOrder="43" diffgr:hasChanges="inserted">
+      <iID>44</iID>
+      <iProjectdataID>77</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:35.1998596+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout45" msdata:rowOrder="44" diffgr:hasChanges="inserted">
+      <iID>45</iID>
+      <iProjectdataID>78</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:35.4962602+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout46" msdata:rowOrder="45" diffgr:hasChanges="inserted">
+      <iID>46</iID>
+      <iProjectdataID>13</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:35.7614606+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout47" msdata:rowOrder="46" diffgr:hasChanges="inserted">
+      <iID>47</iID>
+      <iProjectdataID>57</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:36.0578611+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout48" msdata:rowOrder="47" diffgr:hasChanges="inserted">
+      <iID>48</iID>
+      <iProjectdataID>61</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:36.3386616+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout49" msdata:rowOrder="48" diffgr:hasChanges="inserted">
+      <iID>49</iID>
+      <iProjectdataID>62</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:36.6662622+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout50" msdata:rowOrder="49" diffgr:hasChanges="inserted">
+      <iID>50</iID>
+      <iProjectdataID>67</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:36.9158626+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout51" msdata:rowOrder="50" diffgr:hasChanges="inserted">
+      <iID>51</iID>
+      <iProjectdataID>68</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:37.2434632+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout52" msdata:rowOrder="51" diffgr:hasChanges="inserted">
+      <iID>52</iID>
+      <iProjectdataID>69</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:37.5242637+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout53" msdata:rowOrder="52" diffgr:hasChanges="inserted">
+      <iID>53</iID>
+      <iProjectdataID>70</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:37.8362643+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout54" msdata:rowOrder="53" diffgr:hasChanges="inserted">
+      <iID>54</iID>
+      <iProjectdataID>27</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:38.1170648+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout55" msdata:rowOrder="54" diffgr:hasChanges="inserted">
+      <iID>55</iID>
+      <iProjectdataID>24</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:38.4134653+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout56" msdata:rowOrder="55" diffgr:hasChanges="inserted">
+      <iID>56</iID>
+      <iProjectdataID>25</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:38.6942658+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout57" msdata:rowOrder="56" diffgr:hasChanges="inserted">
+      <iID>57</iID>
+      <iProjectdataID>23</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:38.9438662+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <L_Checkout diffgr:id="L_Checkout58" msdata:rowOrder="57" diffgr:hasChanges="inserted">
+      <iID>58</iID>
+      <iProjectdataID>26</iProjectdataID>
+      <iUserID>0</iUserID>
+      <dtCheckoutDate>2018-08-29T11:30:39.2246667+08:00</dtCheckoutDate>
+      <bScrapFlag>false</bScrapFlag>
+    </L_Checkout>
+    <D_DBVersion diffgr:id="D_DBVersion2" msdata:rowOrder="0" diffgr:hasChanges="inserted">
+      <iSupportVersion>1</iSupportVersion>
+      <iCreateVersion>1</iCreateVersion>
+    </D_DBVersion>
+  </DSCHECKOUT>
+</diffgr:diffgram>

@@ -1,0 +1,22 @@
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\bin\Debug\17-606.exe.config
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\bin\Debug\17-606.exe
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\bin\Debug\17-606.pdb
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\bin\Debug\Interop.ACTPCCOMLib.dll
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\bin\Debug\AxInterop.ACTPCCOMLib.dll
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\obj\Debug\Interop.ACTPCCOMLib.dll
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\obj\Debug\AxInterop.ACTPCCOMLib.dll
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\obj\Debug\17-606.csproj.ResolveComReference.cache
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\obj\Debug\_17_606.Form1.resources
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\obj\Debug\_17_606.Properties.Resources.resources
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\obj\Debug\17-606.csproj.GenerateResource.Cache
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\obj\Debug\17-606.exe
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\obj\Debug\17-606.pdb
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\bin\Debug\17-606.exe.manifest
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\bin\Debug\17-606.application
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\obj\Debug\17-606.exe.manifest
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\obj\Debug\17-606.application
+C:\Users\elecjack\OneDrive\文件\17-606\17-606\obj\Debug\17-606.csprojResolveAssemblyReference.cache
+\\Diskstation\電控\已完成工作\2017\17-606_三軸伺服螺絲機(台全)(STANLEY伺服槍)\PC\source code\17-606\17-606\bin\Debug\17-606.exe.config
+\\Diskstation\電控\已完成工作\2017\17-606_三軸伺服螺絲機(台全)(STANLEY伺服槍)\PC\source code\17-606\17-606\obj\Debug\17-606.csproj.ResolveComReference.cache
+\\Diskstation\電控\已完成工作\2017\17-606_三軸伺服螺絲機(台全)(STANLEY伺服槍)\PC\source code\17-606\17-606\obj\Debug\17-606.exe
+\\Diskstation\電控\已完成工作\2017\17-606_三軸伺服螺絲機(台全)(STANLEY伺服槍)\PC\source code\17-606\17-606\obj\Debug\17-606.pdb
